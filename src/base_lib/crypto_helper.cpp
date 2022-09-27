@@ -3,7 +3,7 @@
 #include <fstream>
 
 #include "crypto_helper.hpp"
-#ifdef HAS_OPENSSL
+#if defined(__unix__) || defined(__APPLE__)
 #include "openssl/crypto_helper_ssl.hpp"
 #else
 #include "win/CryptoHelperWindows.h"
@@ -14,7 +14,7 @@ using namespace std;
 namespace fs = boost::filesystem;
 
 unique_ptr<CryptoHelper> CryptoHelper::getInstance() {
-#ifdef HAS_OPENSSL
+#if defined(__unix__) || defined(__APPLE__)
 	unique_ptr<CryptoHelper> ptr((CryptoHelper *)new CryptoHelperLinux());
 #else
 	unique_ptr<CryptoHelper> ptr((CryptoHelper *)new CryptoHelperWindows());
