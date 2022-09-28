@@ -6,7 +6,7 @@ add_library(license_generator_lib STATIC
 )
 
 target_link_libraries(license_generator_lib
-	libcrypto.a
+		${OPENSSL_LIB_DIR}/libcrypto.a
 )
 
 add_executable(lccgen

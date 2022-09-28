@@ -5,5 +5,5 @@ add_library(lcc_base STATIC
 )
 
 target_link_libraries(lcc_base PUBLIC
-	crypto
+		${OPENSSL_LIB_DIR}/libcrypto.a
 )
