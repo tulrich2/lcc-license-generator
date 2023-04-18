@@ -14,6 +14,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
+find_package(OpenSSL COMPONENTS Crypto QUIET)
+if (NOT OPENSSL_FOUND)
+	message(FATAL_ERROR "Could not find OpenSSL package")
+endif ()
+
 configure_file (
 	"src/build_properties.h.in" 
 	"${CMAKE_BINARY_DIR}/include/build_properties.h"

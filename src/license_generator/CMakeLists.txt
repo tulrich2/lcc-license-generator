@@ -6,7 +6,7 @@ add_library(license_generator_lib STATIC
 )
 
 target_link_libraries(license_generator_lib
-		${OPENSSL_LIB_DIR}/libcrypto.a
+		OpenSSL::Crypto
 		pthread
 		dl
 		lcc_base

@@ -3,7 +3,3 @@ add_library(lcc_base STATIC
 	crypto_helper.cpp
 	openssl/crypto_helper_ssl.cpp
 )
-
-target_link_libraries(lcc_base PUBLIC
-		${OPENSSL_LIB_DIR}/libcrypto.a
-)
